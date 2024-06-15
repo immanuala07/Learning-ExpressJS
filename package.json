@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "format": "npx prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev":"nodemon ./src/index.js",
+    "start-dev": "nodemon ./src/index.js",
     "start": "node ./src/index.js"
   },
   "keywords": [],
@@ -15,7 +16,8 @@
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.2"
+    "nodemon": "^3.1.2",
+    "prettier": "3.3.2"
   },
   "type": "module"
 }
