@@ -21,6 +21,7 @@ app.get('/api/users', (request, response) => {
 })
 
 // Route Parameters in GET requests
+// link - http://localhost:3500/api/users/123
 app.get('/api/users/:id', (request, response) => {
     console.log(request.params)
 
