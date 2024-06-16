@@ -1,6 +1,11 @@
 import express from 'express'
 
 const app = express()
+
+// Before the POST request is made, we should make sure that middleware parses the json payload/request body
+// Now we are registering the middleware
+app.use(express.json())
+
 const PORT = process.env.PORT || 3500
 
 const mockUsers = [
@@ -36,6 +41,15 @@ app.get('/api/users', (request, response) => {
     }
 
     response.send(mockUsers);
+});
+
+// POST requests
+app.post('/api/users', (request, response) => {
+    console.log(request.body);
+    const { body } = request;
+    const newUser = { id: mockUsers[mockUsers.length - 1].id + 1, ...body };
+    mockUsers.push(newUser);
+    return response.status(201).send(newUser);
 });
 
 // Route Parameters in GET requests
