@@ -49,6 +49,7 @@ app.post('/api/users', (request, response) => {
     const { body } = request;
     const newUser = { id: mockUsers[mockUsers.length - 1].id + 1, ...body };
     mockUsers.push(newUser);
+    // Always set the status as 201 for Post request
     return response.status(201).send(newUser);
 });
 
