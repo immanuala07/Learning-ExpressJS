@@ -1,12 +1,12 @@
-import express from 'express'
+import express from 'express';
 
-const app = express()
+const app = express();
 
 // Before the POST request is made, we should make sure that middleware parses the json payload/request body
 // Now we are registering the middleware
-app.use(express.json())
+app.use(express.json());
 
-const PORT = process.env.PORT || 3500
+const PORT = process.env.PORT || 3500;
 
 const mockUsers = [
     { id: 1, username: 'anson', displayName: 'Anson' },
@@ -19,11 +19,11 @@ const mockUsers = [
     { id: 8, username: 'aby', displayName: 'Aby' },
     { id: 9, username: 'ken', displayName: 'Ken' },
     { id: 10, username: 'bill', displayName: 'Bill' },
-]
+];
 
 // GET requests
 app.get('/', (request, response) => {
-    response.status(201).send({ msg: 'Hello' })
+    response.status(201).send({ msg: 'Hello' });
 });
 
 // Query Parameters in GET requests
@@ -32,7 +32,7 @@ app.get('/api/users', (request, response) => {
     console.log('request.query : ', request.query);
     const {
         query: { filter, value },
-    } = request
+    } = request;
 
     if (filter && value) {
         return response.send(
@@ -55,30 +55,30 @@ app.post('/api/users', (request, response) => {
 // Route Parameters in GET requests
 // link - http://localhost:3500/api/users/123
 app.get('/api/users/:id', (request, response) => {
-    console.log(request.params)
+    console.log(request.params);
 
-    const parsedId = parseInt(request.params.id)
-    console.log(parsedId)
+    const parsedId = parseInt(request.params.id);
+    console.log(parsedId);
 
     if (isNaN(parsedId)) {
-        return response.status(400).send({ msg: 'Bad Request. Invalid Id.' })
+        return response.status(400).send({ msg: 'Bad Request. Invalid Id.' });
     }
 
-    const findUser = mockUsers.find((user) => user.id === parsedId)
+    const findUser = mockUsers.find((user) => user.id === parsedId);
     if (!findUser) {
-        return response.sendStatus(404)
+        return response.sendStatus(404);
     }
-    console.log(findUser)
-    return response.send(findUser)
+    console.log(findUser);
+    return response.send(findUser);
 });
 
 // GET requests
 app.get('/api/products', (request, response) => {
-    response.send({ id: 123, name: 'Chicken', price: 12.99 })
+    response.send({ id: 123, name: 'Chicken', price: 12.99 });
 });
 
 app.listen(PORT, () => {
-    console.log(`Running on Port ${PORT}`)
+    console.log(`Running on Port ${PORT}`);
 });
 
 // http://localhost:3500/
