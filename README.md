@@ -15,7 +15,7 @@ Request methods:
  
 5. DELETE: The DELETE method is used to delete a specified resource on the origin server. The client cannot be assured that the operation was performed, even though the status code which is returned from the server indicates it.
 
-    ![Http Verbs](images\http_verbs.webp)
+    ![Http Verbs](https://github.com/immanuala07/Learning-ExpressJS/blob/master/images/http_verbs.webp)
 
 ## Learn Express.js - Step by Step
 
