@@ -80,7 +80,7 @@ app.get('/api/products', (request, response) => {
 
 // Route Parameters in PUT request
 // In PUT request, we update the entire resource on whatever the body we provide,
-// so everything gets updated rest of the data becomes null/undefined.
+// so everything gets updated rest of the data becomes overriden as nthg.
 // link - http://localhost:3500/api/users/123
 app.put('/api/users/:id', (request, response) => {
     const {
