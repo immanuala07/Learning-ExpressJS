@@ -78,7 +78,9 @@ app.get('/api/products', (request, response) => {
     response.send({ id: 123, name: 'Chicken', price: 12.99 });
 });
 
-// Route Parameters in PUT requests
+// Route Parameters in PUT request
+// In PUT request, we update the entire resource on whatever the body we provide,
+// so everything gets updated rest of the data becomes null/undefined.
 // link - http://localhost:3500/api/users/123
 app.put('/api/users/:id', (request, response) => {
     const {
